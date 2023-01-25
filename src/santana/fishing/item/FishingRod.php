@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace santana\fishing\item;
 
+use pocketmine\world\sound\ThrowSound;
 use pocketmine\event\entity\ProjectileLaunchEvent;
 use pocketmine\item\Durable;
 use pocketmine\item\ItemUseResult;
@@ -95,6 +96,9 @@ final class FishingRod extends Durable implements Releasable
                 $hook->close();
             } else {
                 $hook->spawnToAll();
+                
+                $location->getWorld()->addSound($location, new ThrowSound());
+                
                 self::setHooked($player, $hook);
             }
         }
