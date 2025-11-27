@@ -30,8 +30,10 @@ final class VanillaFishing extends PluginBase{
 	protected function onEnable() : void{
 		//TODO: Register Everything
 		$fishingRod = new FishingRod(new ItemIdentifier(ItemTypeIds::FISHING_ROD), "Fishing Rod");
-		$creativeEntry = CreativeInventory::getInstance()->getEntry(CreativeInventory::getInstance()->getItemIndex(VanillaItems::FISHING_ROD()));
+		$vanillaFishingRod = VanillaItems::FISHING_ROD();
+		$creativeEntry = CreativeInventory::getInstance()->getEntry(CreativeInventory::getInstance()->getItemIndex($vanillaFishingRod));
 		if($creativeEntry !== null){
+			CreativeInventory::getInstance()->remove($vanillaFishingRod);
 			CreativeInventory::getInstance()->add($fishingRod, $creativeEntry->getCategory(), $creativeEntry->getGroup());
 		}
 		StringToItemParser::getInstance()->override("fishing_rod", fn() => $fishingRod);
