@@ -1,0 +1,18 @@
+{
+  "name": "kostamax27/vanillafishing",
+  "description": "A Simplistic Plugin to Implement Vanilla Fishing to your Minecraft: Bedrock Server.",
+  "type": "project",
+  "license": "Apache-2.0",
+  "require": {
+    "kostamax27/vanillaloottables": "^1.0.0"
+  },
+  "require-dev": {
+    "php": "^8.1",
+    "pocketmine/pocketmine-mp": "^5.34.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "santana\\fishing\\": "src"
+    }
+  }
+}
