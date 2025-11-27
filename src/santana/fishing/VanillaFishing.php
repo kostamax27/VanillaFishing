@@ -20,7 +20,6 @@ use pocketmine\plugin\DisablePluginException;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Filesystem;
 use pocketmine\world\format\io\GlobalItemDataHandlers;
-use ReflectionClass;
 use santana\fishing\item\FishingRod;
 use Symfony\Component\Filesystem\Path;
 use function file_exists;
@@ -31,13 +30,15 @@ final class VanillaFishing extends PluginBase{
 	protected function onEnable() : void{
 		//TODO: Register Everything
 		$fishingRod = new FishingRod(new ItemIdentifier(ItemTypeIds::FISHING_ROD), "Fishing Rod");
-		CreativeInventory::getInstance()->remove(VanillaItems::FISHING_ROD());
-		CreativeInventory::getInstance()->add($fishingRod);
+		$creativeEntry = CreativeInventory::getInstance()->getEntry(CreativeInventory::getInstance()->getItemIndex(VanillaItems::FISHING_ROD()));
+		if($creativeEntry !== null){
+			CreativeInventory::getInstance()->add($fishingRod, $creativeEntry->getCategory(), $creativeEntry->getGroup());
+		}
 		StringToItemParser::getInstance()->override("fishing_rod", fn() => $fishingRod);
 		GlobalItemDataHandlers::getDeserializer()->map(ItemTypeNames::FISHING_ROD, fn() => clone $fishingRod);
 
 		$itemSerializer = GlobalItemDataHandlers::getSerializer();
-		$reflIS = new ReflectionClass($itemSerializer);
+		$reflIS = new \ReflectionClass($itemSerializer);
 		$reflProp = $reflIS->getProperty("itemSerializers");
 		$reflProp->setAccessible(true);
 		$val = $reflProp->getValue($itemSerializer);
