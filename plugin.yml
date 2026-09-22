@@ -1,0 +1,5 @@
+name: VanillaFishing
+main: kostamax27\vanillafishing\Loader
+version: 1.0.0
+api: 5.5.0
+author: kostamax27
