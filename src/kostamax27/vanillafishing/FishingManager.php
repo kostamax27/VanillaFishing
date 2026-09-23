@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace kostamax27\vanillafishing;
 
 use Closure;
-use kostamax27\loottable\LootContext;
-use kostamax27\loottable\LootDifficulty;
-use kostamax27\loottable\LootTable;
+use kostamax27\vanillafishing\libs\_71d51bac0c879f56\kostamax27\loottable\LootContext;
+use kostamax27\vanillafishing\libs\_71d51bac0c879f56\kostamax27\loottable\LootDifficulty;
+use kostamax27\vanillafishing\libs\_71d51bac0c879f56\kostamax27\loottable\LootTable;
 use kostamax27\vanillafishing\event\PlayerFishingCastEvent;
 use kostamax27\vanillafishing\event\PlayerFishingCatchEvent;
 use kostamax27\vanillafishing\event\PlayerFishingPullEvent;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace kostamax27\vanillafishing;
 
-use kostamax27\loottable\LootTable;
-use kostamax27\loottable\LootTableFactory;
+use kostamax27\vanillafishing\libs\_71d51bac0c879f56\kostamax27\loottable\LootTable;
+use kostamax27\vanillafishing\libs\_71d51bac0c879f56\kostamax27\loottable\LootTableFactory;
 use pocketmine\data\bedrock\BiomeIds;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Random;
